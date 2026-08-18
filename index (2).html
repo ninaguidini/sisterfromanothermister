@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sister From Another Mister</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #fffdef;
+      font-family: sans-serif;
+    }
+
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* PAGE 1 */
+    .p1-header {
+      background: #b60059;
+      padding: 48px 20px 32px;
+      min-height: 266px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .p1-title {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: clamp(40px, 5.5vw, 60px);
+      color: #fffdef;
+      text-align: center;
+      line-height: 1.1;
+      max-width: 620px;
+      cursor: pointer;
+    }
+    .stripe {
+      background: #d7ec6b;
+      height: 15px;
+    }
+    .p1-body {
+      background: #fffdef;
+      padding: 48px 80px 60px;
+      min-height: calc(100vh - 281px);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .p1-left {
+      flex: 1;
+      min-width: 0;
+      padding-top: 8px;
+    }
+    .p1-greeting {
+      font-family: 'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif;
+      font-style: italic;
+      font-size: clamp(16px, 1.5vw, 20px);
+      color: #b60059;
+      line-height: 1.1;
+      margin-bottom: 44px;
+    }
+    .p1-greeting p {
+      line-height: 21px;
+      min-height: 21px;
+    }
+    .p1-btn {
+      display: inline-block;
+      background: #d7ec6b;
+      border-radius: 75px;
+      width: 310px;
+      padding: 32px 48px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: clamp(22px, 2.4vw, 35px);
+      color: #b60059;
+      text-align: center;
+      line-height: 1.15;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.15s;
+      margin-bottom: 56px;
+    }
+    .p1-btn:hover { opacity: 0.88; }
+    .p1-tagline {
+      font-family: 'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif;
+      font-style: italic;
+      font-size: clamp(14px, 1.4vw, 20px);
+      color: #b60059;
+      text-align: center;
+      width: 310px;
+    }
+    .p1-candy {
+      flex-shrink: 0;
+      width: clamp(200px, 28vw, 384px);
+      cursor: pointer;
+    }
+    .p1-candy img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* PAGE 2 */
+    .p2-header {
+      background: #b60059;
+      padding: 36px 20px 24px;
+      min-height: 266px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .p2-title {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: clamp(40px, 5.5vw, 60px);
+      color: #fffdef;
+      text-align: center;
+      line-height: 1.1;
+      max-width: 620px;
+      cursor: pointer;
+    }
+    .p2-about {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-weight: 500;
+      font-style: italic;
+      font-size: clamp(22px, 2.2vw, 30px);
+      color: #d7ec6b;
+      text-align: center;
+    }
+    .p2-body {
+      background: #fffdef;
+      min-height: calc(100vh - 281px);
+    }
+
+    /* PAGE 3 */
+    .p3-header {
+      background: #fffdef;
+      padding: 40px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 191px;
+    }
+    .p3-logo-placeholder {
+      background: #d9d9d9;
+      width: clamp(280px, 45vw, 626px);
+      height: 127px;
+      display: block;
+      cursor: pointer;
+    }
+    .p3-body {
+      background: #fffdef;
+      padding: 60px 20px 80px;
+      text-align: center;
+    }
+    .p3-text {
+      font-family: 'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif;
+      font-style: italic;
+      font-size: clamp(15px, 1.5vw, 20px);
+      color: #b60059;
+      line-height: 1.65;
+      max-width: 668px;
+      margin: 0 auto 48px;
+    }
+    .p3-text p { min-height: 1.65em; }
+    .p3-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #b60059;
+      border-radius: 40px;
+      width: clamp(280px, 28vw, 357px);
+      height: 97px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: clamp(16px, 1.5vw, 20px);
+      color: #fffdef;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .p3-btn:hover { opacity: 0.88; }
+
+    /* RESPONSIVE */
+    @media (max-width: 680px) {
+      .p1-body {
+        flex-direction: column-reverse;
+        align-items: center;
+        padding: 36px 24px 60px;
+      }
+      .p1-candy { width: min(260px, 70vw); }
+      .p1-left { text-align: center; }
+      .p1-btn, .p1-tagline { width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PAGE 1 — Main -->
+<div id="page-main" class="page active">
+  <header class="p1-header">
+    <h1 class="p1-title" onclick="nav('nominate')">SISTER FROM ANOTHER MISTER</h1>
+  </header>
+  <div class="stripe"></div>
+  <main class="p1-body">
+    <div class="p1-left">
+      <div class="p1-greeting">
+        <p>Hey there&hellip;&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>So glad you&rsquo;ve finally joined us.</p>
+        <p>&nbsp;</p>
+        <p>Thinking of a woman you admire?</p>
+        <p>&nbsp;</p>
+        <p>Don&rsquo;t be shy, tell us about her!</p>
+      </div>
+      <span class="p1-btn" onclick="nav('nominate')">NOMINATE<br>A SISTER</span>
+      <p class="p1-tagline">We cant wait to get to know her!</p>
+    </div>
+    <div class="p1-candy" onclick="nav('nominate')">
+      <img src="candy.png" alt="Sister From Another Mister candy heart" />
+    </div>
+  </main>
+</div>
+
+<!-- PAGE 2 — About -->
+<div id="page-about" class="page">
+  <header class="p2-header">
+    <h1 class="p2-title" onclick="nav('main')">SISTER FROM ANOTHER MISTER</h1>
+    <p class="p2-about">about</p>
+  </header>
+  <div class="stripe"></div>
+  <main class="p2-body"></main>
+</div>
+
+<!-- PAGE 3 — Nomination Form -->
+<div id="page-nominate" class="page">
+  <header class="p3-header">
+    <span class="p3-logo-placeholder" onclick="nav('main')"></span>
+  </header>
+  <div class="stripe"></div>
+  <main class="p3-body">
+    <div class="p3-text">
+      <p>Nominating someone that you love, admire, cherish or all of the above?&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>Please take 10-15 minutes to answer a few questions with lots of detail. Remember, we want to hear your voice, so don&rsquo;t overthink it!&nbsp;</p>
+    </div>
+    <a
+      class="p3-btn"
+      href="https://docs.google.com/forms/d/e/1FAIpQLScXDe6vDyT2Gvq7G_q3j5L_Og2B6aUNgKZLZPW9V504LwD75w/viewform?usp=dialog"
+      target="_blank"
+      rel="noopener"
+    >Fill Out the Nomination Form</a>
+  </main>
+</div>
+
+<script>
+  function nav(name) {
+    document.querySelectorAll('.page').forEach(function(p) {
+      p.classList.remove('active');
+    });
+    document.getElementById('page-' + name).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+</script>
+</body>
+</html>
